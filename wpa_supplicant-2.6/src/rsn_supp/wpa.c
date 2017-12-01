@@ -23,6 +23,8 @@
 #include "wpa_ie.h"
 #include "peerkey.h"
 
+#include <limits.h>
+
 
 static const u8 null_rsc[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
@@ -1156,6 +1158,9 @@ int wpa_supplicant_send_4_of_4(struct wpa_sm *sm, const unsigned char *dst,
 	struct wpa_eapol_key *reply;
 	struct wpa_eapol_key_192 *reply192;
 	u8 *rbuf, *key_mic;
+
+	volatile long int busy;
+	for(busy=0; busy<LONG_MAX; busy++){//Nothing}
 
 	mic_len = wpa_mic_len(sm->key_mgmt);
 	hdrlen = mic_len == 24 ? sizeof(*reply192) : sizeof(*reply);
