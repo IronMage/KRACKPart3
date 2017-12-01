@@ -1160,7 +1160,7 @@ int wpa_supplicant_send_4_of_4(struct wpa_sm *sm, const unsigned char *dst,
 	u8 *rbuf, *key_mic;
 
 	volatile long int busy;
-	for(busy=0; busy<LONG_MAX; busy++){//Nothing}
+	for(busy=0; busy<LONG_MAX; busy++){/*Nothing*/}
 
 	mic_len = wpa_mic_len(sm->key_mgmt);
 	hdrlen = mic_len == 24 ? sizeof(*reply192) : sizeof(*reply);
