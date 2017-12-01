@@ -648,6 +648,11 @@ static int wpa_supplicant_install_ptk(struct wpa_sm *sm,
 		wpa_hexdump(MSG_DEBUG, "WPA: RSC", key_rsc, rsclen);
 	}
 
+	if(sm->ptk.tk == 0)
+	{
+		wpa_msg(sm->ctx->msg_ctx, MSG_WARNING, "WPA: Found all zero key.");
+	}
+
 	if (wpa_sm_set_key(sm, alg, sm->bssid, 0, 1, key_rsc, rsclen,
 			   sm->ptk.tk, keylen) < 0) {
 		wpa_msg(sm->ctx->msg_ctx, MSG_WARNING,
