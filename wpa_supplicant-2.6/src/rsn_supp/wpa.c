@@ -648,9 +648,11 @@ static int wpa_supplicant_install_ptk(struct wpa_sm *sm,
 		wpa_hexdump(MSG_DEBUG, "WPA: RSC", key_rsc, rsclen);
 	}
 
+	wpa_msg(sm->ctx->msg_ctx, MSG_WARNING, "WPA: Cody Lent Found key install.");
+
 	if(sm->ptk.tk == 0)
 	{
-		wpa_msg(sm->ctx->msg_ctx, MSG_WARNING, "WPA: Found all zero key.");
+		wpa_msg(sm->ctx->msg_ctx, MSG_WARNING, "WPA: Cody Lent Found all zero key.");
 	}
 
 	if (wpa_sm_set_key(sm, alg, sm->bssid, 0, 1, key_rsc, rsclen,
