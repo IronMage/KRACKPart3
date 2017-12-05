@@ -1,9 +1,0 @@
-wpa_supplicant-2.6/**/*.o
-wpa_supplicant-2.6/**/*.d
-wpa_supplicant-2.6/**/*.service
-
-#Ignores executables
-wpa_supplicant-2.6/wpa_supplicant/wpa_passphrase
-wpa_supplicant-2.6/wpa_supplicant/wpa_supplicant
-wpa_supplicant-2.6/wpa_supplicant/wpa_cli
-network.conf
